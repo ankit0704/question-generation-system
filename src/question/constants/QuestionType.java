@@ -8,5 +8,6 @@ public enum QuestionType {
 	 QuestionType(String type) {
 		this.type=type;
 	}
+
 	
 }

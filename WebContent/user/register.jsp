@@ -16,7 +16,7 @@
               out.println(error.getMessage());
             %>
             </font>
-            <form class="form-signin" action="http://localhost:8888/Question-Generation-System/register" method="Post">
+            <form class="form-signin" action="/Question-Generation-System/register" method="Post">
               <div class="form-label-group">
                  <label for="inputEmail">Email address</label>
                 <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

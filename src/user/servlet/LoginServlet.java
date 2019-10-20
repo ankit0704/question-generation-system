@@ -29,15 +29,16 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		UserDto userDto = userService.findUserByNameAndPassword(email, password);
-		PrintWriter out = response.getWriter();
+		
 		if (userDto != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", userDto.getUserId());
 			session.setAttribute("name", userDto.getUserName());
 			response.sendRedirect(Constants.APP_URL+"/welcome");
 		} else {
+			response.getWriter().println("<h2>Invalid Username or Password! </h2>");
 			//response.sendRedirect(Constants.APP_URL);
-			RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");  
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
 	        rd.include(request, response); 
 		}
 	}

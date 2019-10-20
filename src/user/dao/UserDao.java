@@ -39,7 +39,7 @@ public class UserDao {
 			ps.setString(1,email);
 			ps.setString(2,email);
 			ps.setString(3, password);
-			isCreated=ps.executeUpdate()>0 ?true:false;
+			isCreated=ps.executeUpdate()>0?true:false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -55,8 +55,7 @@ public class UserDao {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				isExists = rs.getInt("count")>0?true:false;
-					
+				isExists = rs.getInt("count")>0?true:false;			
 			}
 		}catch(Exception e) {
 		  e.printStackTrace();	
