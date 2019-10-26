@@ -7,7 +7,8 @@
 	%>
 <button><a href="/Question-Generation-System/logout">LogOut</a></button>
 <button><a href="/Question-Generation-System/question/create-question.jsp">Add Question</a></button>
-<button><a href="/Question-Generation-System/question/edit-question.jsp">Update Question</a></button>
-<button><a href="/Question-Generation-System/question/delete-question.jsp">Delete Question</a></button>
+<button><a href="/Question-Generation-System/question/delete-question.jsp">Delete All Questions</a></button>
 <button><a href="/Question-Generation-System/question/list">Show Questions</a></button>
+
+
 <jsp:include page="elements/footer.jsp"></jsp:include>

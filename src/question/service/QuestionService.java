@@ -10,7 +10,7 @@ public class QuestionService {
 	private QuestionDao questionDao;
 
 	public QuestionService() {
-		questionDao = new QuestionDao();
+		this.questionDao = new QuestionDao();
 	}
 
 	public void create(QuestionDto question) {
@@ -28,5 +28,7 @@ public class QuestionService {
 	public List<QuestionDto> getAllQuestion() {
 		return questionDao.getAllQuestion();
 	}
-	
+	public QuestionDto findById(long questionId) {
+		return questionDao.findById(questionId);
+	}
 }

@@ -18,7 +18,7 @@ public class WelcomeServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if(session!=null && session.getAttribute("name")!=null) {
 			response.setContentType("text/html");
-			RequestDispatcher rd = request.getRequestDispatcher("/welcome.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/dashboard.jsp");
 			rd.include(request, response);
 		}else {
 			response.sendRedirect(Constants.APP_URL);

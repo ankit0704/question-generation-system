@@ -18,11 +18,17 @@ public class DeleteQuestionServlet extends HttpServlet {
 	public void init() {
 		this.questionsService = new QuestionService();
 	}
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		long questionId=Long.parseLong(request.getParameter("questionId"));
+
+		System.out.println("questionId " + request.getParameter("questionId"));
+
+		long questionId = Long.parseLong(request.getParameter("questionId"));
+
 		questionsService.delete(questionId);
+		response.sendRedirect("/Question-Generation-System/question/list");
+
 	}
 
 }

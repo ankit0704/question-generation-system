@@ -30,4 +30,4 @@
       </div>
     </div>
   </div>
-<<jsp:include page="elements/footer.jsp"></jsp:include>
+<jsp:include page="elements/footer.jsp"></jsp:include>

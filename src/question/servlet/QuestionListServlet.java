@@ -24,9 +24,13 @@ public class QuestionListServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-	  List<QuestionDto> questionList=questionService.getAllQuestion();
-	  request.setAttribute("questions",questionList);	  
-	  RequestDispatcher rd = request.getRequestDispatcher("/question/question-list.jsp");
-	  rd.include(request,response);
+	  
+		response.setContentType("text/html");
+		List<QuestionDto> questionList=(List<QuestionDto>)questionService.getAllQuestion();
+    
+    	 request.setAttribute("questions",questionList);	
+   	  RequestDispatcher rd = request.getRequestDispatcher("/admin/question-list.jsp");
+   	  rd.include(request,response); 
+	
 	}
 }

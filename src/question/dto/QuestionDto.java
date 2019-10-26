@@ -1,6 +1,8 @@
 package question.dto;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import question.constants.QuestionType;
 
 public class QuestionDto {
@@ -14,8 +16,8 @@ public class QuestionDto {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long questionId) {
+		this.id = questionId;
 	}
 
 	public String getQuestion() {
@@ -40,6 +42,16 @@ public class QuestionDto {
 
 	public void setOptions(List<QuestionOption> options) {
 		this.options = options;
+	}
+	
+	public boolean isQuestionPresent() {
+		return Objects.nonNull(question);
+	}
+	public boolean isQuestionTypePresent() {
+		return Objects.nonNull(questionType);
+	}
+	public boolean isQuestionTypeValid() {
+		return Objects.nonNull(questionType) && List.of(QuestionType.values()).contains(questionType);
 	}
 	
 }

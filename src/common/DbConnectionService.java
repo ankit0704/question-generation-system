@@ -11,7 +11,7 @@ public class DbConnectionService {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+DbConstant.DB_NAME,DbConstant.USER_NAME,DbConstant.PASSWORD);
 		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Db connection failed");
 		}
 		return con;
 	}
