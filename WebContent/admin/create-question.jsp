@@ -1,5 +1,6 @@
 <%@ include file="/admin/elements/header.jsp"%>
 
+<title>Add Question</title>
 <!-- Page Wrapper -->
 <div id="wrapper">
 	<%@ include file="/admin/elements/sidebar-menu.jsp"%>
@@ -15,8 +16,8 @@
 					<table>
 						<tr>
 							<td>Question :</td>
-							<td><input type="text" name="question" size="50"
-								class="form-control form-control-user"></td>
+							<td><textarea rows="6" cols ="70" name="question" placeholder="Enter Your Question here...." required
+								class="form-control form-control-user"></textarea></td>
 						</tr>
 						<tr>
 							<td>Question Type :</td>

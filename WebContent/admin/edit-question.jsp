@@ -34,7 +34,7 @@
 						<tr>
 
 							<td>New Question :</td>
-							<td><textarea rows="5" cols="60" name="newQuestion"
+							<td><textarea rows="6" cols="70" name="newQuestion"
 									placeholder="Enter your Question here..." required><%=questionDto.getQuestion()%></textarea></td>
 						</tr>
 
@@ -48,15 +48,17 @@
 									<option value="subjective" 
 										<%
 											if (questionDto.getQuestionType() == QuestionType.SUBJECTIVE)
-												out.println("selected");
-										%>>SUBJECTIVE
+												out.println("selected");%>>SUBJECTIVE
 									</option></td>
 						</tr>
 						<%
 							List<QuestionOption> options = questionDto.getOptions();
+						
 							int counter = 1;
+							if(!options.isEmpty()){
 							for (QuestionOption questionOption : options) {
 						%>
+						
 						<tr class="options">
 
 							<td>Option <%=counter++%></td>
@@ -64,9 +66,9 @@
 								value="<%=questionOption.getOption()%>" required></td>
 						</tr>
 						<%
-							}
+						}
+						}
 						%>
-
 						<tr>
 							<td><input type="submit" class="btn btn-primary btn-user btn-block" value="Update" class="form-control form-control-user"></td>
 							<td></td>

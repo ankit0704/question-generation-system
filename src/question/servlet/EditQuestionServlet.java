@@ -54,6 +54,7 @@ public class EditQuestionServlet extends HttpServlet {
 				option_list.add(questionOption);
 			}
 		}
+		questionDto.setOptions(option_list);
 		questionsService.update(questionDto);
 		response.sendRedirect("/Question-Generation-System/question/list");
 

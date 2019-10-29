@@ -73,7 +73,7 @@ public class QuestionDao {
 		}
 	}
 
-	public List<QuestionDto> getAllQuestion() {
+	public List<QuestionDto> getAllQuestions() {
 
 		List<QuestionDto> list = new ArrayList<QuestionDto>();
 		try {
@@ -109,17 +109,16 @@ public class QuestionDao {
 				questionDto.setQuestionType(rs.getString(2));
 			}
 			
-			String sql2 = "select option,is_right from question_option where qid=?";
+			String sql2 = "select option from question_option where qid=?";
 			PreparedStatement ps2=con.prepareStatement(sql2);
 			ps2.setLong(1, questionId);
 			ResultSet rs1=ps2.executeQuery();
 			
 			while(rs1.next()) {
-				System.out.println("rs1.getString(1) "+rs1.getString(1));
-				System.out.println("rs1.getByte(2) "+rs1.getByte(2));
+				
 				QuestionOption questionOption =new QuestionOption();
 				questionOption.setOption(rs1.getString(1));
-				questionOption.setCorrect(rs1.getByte(2));
+				
 				questionOptions.add(questionOption);
 			}
 			questionDto.setOptions(questionOptions);
@@ -131,5 +130,31 @@ public class QuestionDao {
 		}
 
 		return questionDto;
+	}
+	
+	public List<QuestionDto> getAllRandomQuestions(String questionType,int numberOfQuestions){
+		
+		Connection con=DbConnectionService.getConnection();
+		List<QuestionDto> randomQuestionslist= new ArrayList();
+		
+		String sql="select question,type from question where type=? order by rand() limit ?";
+		
+		try {
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1,questionType);
+			ps.setInt(2,numberOfQuestions);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				QuestionDto questionDto=new QuestionDto();
+				questionDto.setQuestion(rs.getString(1));
+				questionDto.setQuestionType(rs.getString(2));
+				randomQuestionslist.add(questionDto);
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return randomQuestionslist;
+		
 	}
 }

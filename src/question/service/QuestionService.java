@@ -25,10 +25,16 @@ public class QuestionService {
 		questionDao.delete(questionId);
 	}
 
-	public List<QuestionDto> getAllQuestion() {
-		return questionDao.getAllQuestion();
+	public List<QuestionDto> getAllQuestions() {
+		return questionDao.getAllQuestions();
 	}
 	public QuestionDto findById(long questionId) {
 		return questionDao.findById(questionId);
+	}
+	
+	public List<QuestionDto> getAllRandomQuestions(String questionType,int numberOfQuestions){
+		
+		return questionDao.getAllRandomQuestions(questionType,numberOfQuestions);
+		
 	}
 }

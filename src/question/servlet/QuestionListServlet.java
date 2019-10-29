@@ -26,7 +26,7 @@ public class QuestionListServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 	  
 		response.setContentType("text/html");
-		List<QuestionDto> questionList=(List<QuestionDto>)questionService.getAllQuestion();
+		List<QuestionDto> questionList=questionService.getAllQuestions();
     
     	 request.setAttribute("questions",questionList);	
    	  RequestDispatcher rd = request.getRequestDispatcher("/admin/question-list.jsp");

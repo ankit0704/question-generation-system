@@ -95,7 +95,7 @@ function showOptions(obj){
         <div class="modal-body">Do you want to delete this question?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a id="deleteConfirmLink" class="btn btn-primary" onClick="deleteQuestion(this)" data-item-id="">Delete</a>
+         <button a id="deleteConfirmLink" class="btn btn-primary" onClick="deleteQuestion(this)" data-item-id="">Delete</a> </button>
         </div>
       </div>
     </div>
